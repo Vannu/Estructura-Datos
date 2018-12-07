@@ -1,0 +1,7 @@
+C:\Users\Vanesa\source\repos\Tp Final Soria\Tp Final Soria\bin\Debug\Tp Final Soria.exe.config
+C:\Users\Vanesa\source\repos\Tp Final Soria\Tp Final Soria\bin\Debug\Tp Final Soria.exe
+C:\Users\Vanesa\source\repos\Tp Final Soria\Tp Final Soria\bin\Debug\Tp Final Soria.pdb
+C:\Users\Vanesa\source\repos\Tp Final Soria\Tp Final Soria\obj\Debug\Tp Final Soria.csprojResolveAssemblyReference.cache
+C:\Users\Vanesa\source\repos\Tp Final Soria\Tp Final Soria\obj\Debug\Tp Final Soria.csproj.CoreCompileInputs.cache
+C:\Users\Vanesa\source\repos\Tp Final Soria\Tp Final Soria\obj\Debug\Tp Final Soria.exe
+C:\Users\Vanesa\source\repos\Tp Final Soria\Tp Final Soria\obj\Debug\Tp Final Soria.pdb
