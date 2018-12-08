@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 
 namespace Tp_Final_Soria
@@ -9,7 +9,7 @@ namespace Tp_Final_Soria
         {
 
             #region Funciones
-            // Crear Cola
+            // Crear Cola, "new Queue()"
             void crear(ref Queue micola)
             {
 
@@ -24,7 +24,8 @@ namespace Tp_Final_Soria
                 Console.Clear();
             }
 
-            //Eliminar contenido de la cola
+
+            // Eliminar contenido de la cola, método utilizado Clear()
             void BorrarContenido(ref Queue cola)
             {
                 try
@@ -35,6 +36,9 @@ namespace Tp_Final_Soria
                     mensaje(" El contenido de la cola se ha eliminado ");
                     Console.ResetColor();
                 }
+
+                //Manejo de exepciones : objeto nulo
+
                 catch (NullReferenceException)
                 {
                     Console.Clear();
@@ -49,7 +53,8 @@ namespace Tp_Final_Soria
 
             }
 
-            //Agrega elemento a la cola 
+
+            // Agrega elemento a la cola, método utilizado Enqueue()
             void AgregarPedido(ref Queue cola)
             {
                 try
@@ -78,6 +83,9 @@ namespace Tp_Final_Soria
                        
                     }
                 }
+
+                //Manejo de exepciones : objeto nulo y formato correcto
+
                 catch (NullReferenceException)
                 {
 
@@ -103,7 +111,8 @@ namespace Tp_Final_Soria
                 }
             }
 
-            //Borrar último pedido
+
+            // Borrar último pedido, método utilizado Dequeue()
             void BorrarPedido(ref Queue cola)
             {
                 try
@@ -115,6 +124,9 @@ namespace Tp_Final_Soria
                     Console.ResetColor();
                     MostrarPedidos(cola);
                 }
+
+                //Manejo de exepciones : objeto nulo
+
                 catch (NullReferenceException)
                 {
                     
@@ -128,7 +140,8 @@ namespace Tp_Final_Soria
                 }
             }
 
-            //Mostrar contenido de la cola
+
+            // Mostrar contenido de la cola iterando con un Foreach 
             void MostrarPedidos(Queue cola)
             {
                 try
@@ -139,7 +152,7 @@ namespace Tp_Final_Soria
                     Console.WriteLine("----------------");
                     Console.ResetColor();
                     int i = 1;
-                    foreach (int contenido in cola)
+                    foreach (int contenido in cola) // iteracion 
                     {
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.ForegroundColor = ConsoleColor.Blue;
@@ -151,6 +164,9 @@ namespace Tp_Final_Soria
                     Console.ReadKey();
 
                 }
+
+                //Manejo de exepciones : objeto nulo
+
                 catch (NullReferenceException)
                 {
                     
@@ -167,7 +183,9 @@ namespace Tp_Final_Soria
 
             }
 
-            //Mostrar el último pedido de la Cola
+
+            // Mostrar el último pedido de la Cola, para obtener la ultima posicion
+            // copio la cola a una lista, y con el método .Count() accedo a la posicion
             void ultimoPedido(ref Queue cola)
             {
                 try
@@ -185,6 +203,9 @@ namespace Tp_Final_Soria
                     Console.ResetColor();
                     MostrarPedidos(cola);
                 }
+
+                //Manejo de exepciones : objeto nulo estado del objeto y valores permitidos
+
                 catch (NullReferenceException)
                 {
                     
@@ -224,7 +245,8 @@ namespace Tp_Final_Soria
                 }
             }
 
-            //Mostrar el primer pedido de la cola
+
+            //Mostrar el primer pedido de la cola, utilizacion del método Peek()
             void PrimerPedido(ref Queue cola)
             {
                 try
@@ -236,6 +258,8 @@ namespace Tp_Final_Soria
                     Console.ResetColor();
                     MostrarPedidos(cola);
                 }
+
+                //Manejo de exepciones : objeto nulo y estado actual del objeto
 
                 catch (NullReferenceException)
                 {
@@ -263,7 +287,8 @@ namespace Tp_Final_Soria
 
             }
 
-            // Mostrar cantidad de pedidos
+
+            // Mostrar cantidad de pedidos con el método Count()
             void CantidadPedidos(ref Queue cola)
             {
                 try
@@ -275,6 +300,8 @@ namespace Tp_Final_Soria
                     Console.ResetColor();
                     MostrarPedidos(cola);
                 }
+                //Manejo de exepciones : objeto nulo
+
                 catch (NullReferenceException)
                 {
                     
@@ -288,15 +315,16 @@ namespace Tp_Final_Soria
                 }
             }
 
-            //Buscar pedido en cola 
+
+            //Buscar pedido en cola, copio la cola a una lista y comparao el valor ingresado utilizando el método Contains()
             void BuscarPedido(ref Queue cola)
             {
                 Console.Write("\nIngresar Número del Pedido: ");
                 try
                 {
                     int valor = Convert.ToInt32(Console.ReadLine()); // Ingreso del pedido
-                    ArrayList lista = new ArrayList();
-                    foreach (int dato in cola)
+                    ArrayList lista = new ArrayList(); // creo una lista
+                    foreach (int dato in cola) // copio los datos de la cola a una lista
                     {
                         lista.Add(dato);
                     }
@@ -305,7 +333,7 @@ namespace Tp_Final_Soria
 
                     // Buscar pedido.
 
-                    if (lista.Contains(valor))
+                    if (lista.Contains(valor)) //comparo el valor ingresado 
                     {
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.ForegroundColor = ConsoleColor.Blue;
@@ -319,7 +347,7 @@ namespace Tp_Final_Soria
                         Console.WriteLine("\nPedido {0} Inexistente", valor);
                         Console.ResetColor();
                     }
-                    foreach (var dato in lista)
+                    foreach (var dato in lista) // los datos de la lista lo copio a la cola
                     {
                         cola.Enqueue(dato);
                     }
@@ -328,6 +356,9 @@ namespace Tp_Final_Soria
                     Console.Clear();
 
                 }
+
+                //Manejo de exepciones : objeto nulo
+
                 catch (NullReferenceException)
                 {
                     
@@ -341,18 +372,19 @@ namespace Tp_Final_Soria
                 }
             }
 
-            //Ordenar pedidos
+
+            //Ordenar pedidos, copio los datos a una lista y con el método Sort() lo ordeno 
             void OrdenarPedidos(ref Queue cola)
             {
                 try
                 {
                     ArrayList lista = new ArrayList();
-                    foreach (int dato in cola)
+                    foreach (int dato in cola) // copio datos a lista
                     {
                         lista.Add(dato);
                     }
 
-                    lista.Sort();
+                    lista.Sort(); // ordenar lista de manera Descendente
 
                     Console.BackgroundColor = ConsoleColor.White;
                     Console.ForegroundColor = ConsoleColor.Blue;
@@ -361,7 +393,7 @@ namespace Tp_Final_Soria
 
 
                     int i = 1;
-                    foreach (var elemento in lista)
+                    foreach (var elemento in lista) // iteracion
                     {
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.ForegroundColor = ConsoleColor.Blue;
@@ -372,7 +404,7 @@ namespace Tp_Final_Soria
 
                     Console.WriteLine("Para continuar presione una tecla...");
 
-                    foreach (var dato in lista)
+                    foreach (var dato in lista) // pasar los datos de la lista a la cola
                     {
                         cola.Enqueue(dato);
                     }
@@ -381,6 +413,9 @@ namespace Tp_Final_Soria
                     Console.Clear();
 
                 }
+
+                //Manejo de exepciones : objeto nulo
+
                 catch (NullReferenceException)
                 {
                     
@@ -398,7 +433,9 @@ namespace Tp_Final_Soria
             #endregion
             #region Menu
             int menu()
-            {
+            { 
+                //Visualizacion del menu en pantalla
+
                 Console.Clear();
                 Console.WriteLine("Ifts18 \n" +
                     "Estructura de datos - TP FInal \n" +
@@ -406,7 +443,7 @@ namespace Tp_Final_Soria
                       Console.Title);
                 Console.WriteLine("\t \t \t \t \t \t ==================");
                 Console.WriteLine("\t \t \t \t \t \t ==================");
-                Console.WriteLine("\t \t \t \t \t \t Sistema| de Pedidos");
+                Console.WriteLine("\t \t \t \t \t \t Sistema de Pedidos");
                 Console.WriteLine("\t \t \t \t \t \t ==================");
                 Console.WriteLine("\t \t \t \t \t \t ==================");
                 Console.WriteLine(" (1) Crear Cola");
@@ -422,11 +459,14 @@ namespace Tp_Final_Soria
                 Console.WriteLine(" (0) Salir del Programa\n");
                 Console.Write(" Ingresa tu opción: ");
 
+                //Manejo de exepciones
                 try
                 {
                     int valor = Convert.ToInt32(Console.ReadLine());
                     return valor;
                 }
+
+                //Manejo de exepciones : objeto nulo y formato correcto
 
                 catch (NullReferenceException)
                 {
@@ -453,7 +493,7 @@ namespace Tp_Final_Soria
                 }
             }
 
-            //Mostrar en pantalla
+            //Mostrar en pantalla mensaje
             void mensaje(String texto)
             {
                 if (texto.Length != 0)
@@ -506,6 +546,7 @@ namespace Tp_Final_Soria
                         break;
                     case 0: break; // Salir del programa 
 
+
                     default:
                         Console.Clear();
                         Console.BackgroundColor = ConsoleColor.Red;
@@ -519,7 +560,7 @@ namespace Tp_Final_Soria
                         break;
                 }
             }
-            while (opcion != 0);
+            while (opcion != 0); //termina el programa si la opcion es 0
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Blue;
             mensaje("Ha salido del programa");
